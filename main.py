@@ -1,12 +1,17 @@
-import requests
-from bs4 import BeautifulSoup as BS
+from binance.client import Client
+
+api_key = 'al3IIENiD8Z0udKHdpTGHww5wQGGK6i1pNbqWuumsGzLPboRVBgc9PvOH2CxcAqp'
+secret_key = ''
+
+client = Client(
+    api_key,
+    secret_key,
+    testnet=True
+)
+
+tickers = client.get_all_tickers()
+print(tickers[0]['symbol'])
 
 
-r = requests.get('https://stopgame.ru/review/new/izumitelno/p1')
-html = BS(r.content, 'html.parser')
-
-
-for el in html.select('.items > .article-summary'):
-    title = el.select('.caption > a')
-    print(title[0].text)
-
+#for ticker in tickers:
+   # print(ticker['symbol'])
