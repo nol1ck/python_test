@@ -1,10 +1,23 @@
-first_List = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+arr = [{'symbol': 'BNBBUSD', 'price': '153.63000000'}, {'symbol': 'BTCBUSD', 'price': '37800.00000000'},
+       {'symbol': 'ETHBUSD', 'price': '2879.24000000'}, {'symbol': 'LTCBUSD', 'price': '100.10000000'}]
 
-second_List = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+keys = list()
+
+for item in arr:
+    keys.append(item['symbol'])
+
+values = list()
+
+for item in arr:
+    values.append(item['price'])
+
+new_arr = dict(zip(keys, values))
+print(new_arr['BNBBUSD'])
 
 
-result = list(set(first_List) & set(second_List))
 
-print(result)
+
+
+
 
 
